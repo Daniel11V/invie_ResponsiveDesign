@@ -112,7 +112,7 @@ input:focus, textarea:focus{
   font-size: 24px;
   display: inline-block;
   position: absolute;
-  font-weight: bold;
+  right: 0;
 }
 
 .menu li{
@@ -125,11 +125,9 @@ input:focus, textarea:focus{
   color: white;
 }
 
-.menu ul li a{
+.menu a{
   color:white;
   text-decoration:none;
-  display: block;
-  padding: 15px;
 }
 
 .logotipo{
