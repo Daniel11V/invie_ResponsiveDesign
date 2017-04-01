@@ -7,11 +7,11 @@
     <link rel="stylesheet" href="css/invie.css"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
   </head>
-  <body>
+  <body class="precios">
     <div class="background">
         <header id="header" class="header contenedor"><!--header-->
             <figure class="logotipo"><!--logotipo-->
-                <img src="images/invie.png" width="186" height="60" alt="Invie logotipo"/>
+                <img src="images/invie.png" srcset="images/invie.png 1x, images/invie2x.png 2x" width="186" height="60" alt="Invie logotipo"/>
             </figure>
             <span id="burguer-button" class="burguer-button icon-menu"></span>
             <nav id="menu" class="menu"><!--menu-->
@@ -66,7 +66,7 @@
     <footer class="footer">
         <div class="contenedor">
             <div class="contacto">
-                <img src="images/invie-white.png" alt="logotipo blanco" />
+                <img data-src="images/invie-white.png|images/invie-white2x.png" alt="logotipo blanco" />
                 <a href="tel:+543024456678"><strong>Telefono</strong><span>3024456678</span></a>
                 <a href="mailto:contacto@Invie.com"><strong>E-mail</strong><span>contacto@Invie.com</span></a>
             </div>
@@ -107,12 +107,20 @@
             </form>
         </div>
     </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/blazy/1.8.2/blazy.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
     <script type="text/javascript">
       var consulta = window.matchMedia('(max-width: 500px)');
       var $burguerButton = document.getElementById('burguer-button');
       var $menu = document.getElementById('menu');
       function toggleMenu(){
         $menu.classList.toggle('active');
+      }
+      function showMenu(){
+        $menu.classList.add('active');
+      }
+      function hideMenu(){
+        $menu.classList.remove('active');
       }
 
       consulta.addListener(mediaQuery);
@@ -129,9 +137,15 @@
       mediaQuery();
 
       // Lazy loading
-      // var blazy = new Blazy({
-      //   selector: "img"
-      // });
+      var blazy = new Blazy({
+        selector: "img"
+      });
+
+      // Hammer.js
+      var $body = document.body;
+      var gestos = new Hammer($body);
+      gestos.on('swipeleft', hideMenu);
+      gestos.on('swiperight', showMenu);
     </script>
   </body>
 </html>
