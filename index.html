@@ -41,7 +41,7 @@
         <div class="video-responsive-contenedor">
           <iframe class="video-responsive-src" src="https://www.youtube.com/embed/R1dW8M4EqYY?ecver=2" width="560" height="315" frameborder="0" allowfullscreen></iframe>
         </div>
-        <video src="videofile.ogg" autoplay poster="posterimage.jpg"></video>
+        <video src="" autoplay></video>
         <article class="guitarra">
           <img class="derecha" data-src="images/invie-acustica.png|images/invie-acustica2x.png" alt="guitarra 1" width="350" />
           <div class="contenedor-guitarra-a">
@@ -112,12 +112,19 @@
         </div>
     </footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/blazy/1.8.2/blazy.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
     <script type="text/javascript">
       var consulta = window.matchMedia('(max-width: 500px)');
       var $burguerButton = document.getElementById('burguer-button');
       var $menu = document.getElementById('menu');
       function toggleMenu(){
         $menu.classList.toggle('active');
+      }
+      function showMenu(){
+        $menu.classList.add('active');
+      }
+      function hideMenu(){
+        $menu.classList.remove('active');
       }
 
       consulta.addListener(mediaQuery);
@@ -137,6 +144,12 @@
       var blazy = new Blazy({
         selector: "img"
       });
+
+      // Hammer.js
+      var $body = document.body;
+      var gestos = new Hammer($body);
+      gestos.on('swipeleft', hideMenu);
+      gestos.on('swiperight', showMenu);
     </script>
   </body>
 </html>
