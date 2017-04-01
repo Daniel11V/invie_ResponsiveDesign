@@ -384,15 +384,25 @@ thead{
   }
   .contacto {
     margin:0 auto;
+    display: block;
+  }
+  .contacto a{
+    display: block;
   }
   .formulario {
     display: block;
     margin: 0 auto;
     width: 300px;
   }
+  .sexo label{
+    display: block;
+  }
+  .formulario label{
+    font-size: 20px;
+  }
   .intereses label{
     display: block;
-    font-size: 16px;
+    font-size: 20px;
   }
   .col1 {
     margin: 0;
@@ -401,6 +411,7 @@ thead{
   input[type="email"] {
     font-size: 16px;
     padding: 5px;
+    margin-bottom: 25px;
   }
   textarea{
     width: 100%;
