@@ -13,7 +13,7 @@
     <section id="portada" class="portada background"><!--portada-->
         <header id="header" class="header contenedor"><!--header-->
             <figure class="logotipo"><!--logotipo-->
-                <img src="images/invie.png" width="186" height="60" alt="Invie logotipo"/>
+                <img src="images/invie.png" srcset="images/invie.png 1x, images/invie2x.png 2x" width="186" height="60" alt="Invie logotipo"/>
             </figure>
             <span id="burguer-button" class="burguer-button icon-menu"></span>
             <nav id="menu" class="menu"><!--menu-->
@@ -38,8 +38,12 @@
     </section>
     <section id="guitarras" class="guitarras contenedor">
         <h2>Nuestras guitarras</h2><!--titulo-->
+        <div class="video-responsive-contenedor">
+          <iframe class="video-responsive-src" src="https://www.youtube.com/embed/R1dW8M4EqYY?ecver=2" width="560" height="315" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <video src="videofile.ogg" autoplay poster="posterimage.jpg"></video>
         <article class="guitarra">
-          <img class="derecha" data-src="images/invie-acustica.png" alt="guitarra 1" width="350" />
+          <img class="derecha" data-src="images/invie-acustica.png|images/invie-acustica2x.png" alt="guitarra 1" width="350" />
           <div class="contenedor-guitarra-a">
             <h3 class="title-b">Invie Acustica</h3>
             <ol>
@@ -50,7 +54,7 @@
           </div>
         </article>
         <article class="guitarra b">
-          <img class="izquierda" data-src="images/invie-classic.png" alt="guitarra 2" width="350" />
+          <img class="izquierda" data-src="images/invie-classic.png|images/invie-classic2x.png" alt="guitarra 2" width="350" />
           <div class="contenedor-guitarra-b">
             <h3 class="title-b">Invie Classic</h3>
             <ol>
@@ -66,7 +70,7 @@
     <footer class="footer"><!--placeholder-->
         <div class="contenedor">
             <div class="contacto">
-                <img data-src="images/invie-white.png" alt="logotipo blanco" />
+                <img data-src="images/invie-white.png|images/invie-white2x.png" alt="logotipo blanco" />
                 <a href="tel:+543024456678"><strong>Telefono</strong><span>3024456678</span></a>
                 <a href="mailto:contacto@Invie.com"><strong>E-mail</strong><span>contacto@Invie.com</span></a>
             </div>
@@ -109,30 +113,30 @@
     </footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/blazy/1.8.2/blazy.min.js"></script>
     <script type="text/javascript">
-    var consulta = window.matchMedia('(max-width: 500px)');
-    var $burguerButton = document.getElementById('burguer-button');
-    var $menu = document.getElementById('menu');
-    function toggleMenu(){
-      $menu.classList.toggle('active');
-    }
-
-    consulta.addListener(mediaQuery);
-
-    function mediaQuery(){
-      if (consulta.matches){
-        console.log("se cumplio");
-        $burguerButton.addEventListener("touchstart", toggleMenu);
-      }else {
-        console.log("no se cumplio");
-        $burguerButton.removeEventListener("touchstart", toggleMenu);
+      var consulta = window.matchMedia('(max-width: 500px)');
+      var $burguerButton = document.getElementById('burguer-button');
+      var $menu = document.getElementById('menu');
+      function toggleMenu(){
+        $menu.classList.toggle('active');
       }
-    }
-    mediaQuery();
 
-    // Lazy loading
-    var blazy = new Blazy({
-      selector: "img"
-    });
+      consulta.addListener(mediaQuery);
+
+      function mediaQuery(){
+        if (consulta.matches){
+          console.log("se cumplio");
+          $burguerButton.addEventListener("touchstart", toggleMenu);
+        }else {
+          console.log("no se cumplio");
+          $burguerButton.removeEventListener("touchstart", toggleMenu);
+        }
+      }
+      mediaQuery();
+
+      // Lazy loading
+      var blazy = new Blazy({
+        selector: "img"
+      });
     </script>
   </body>
 </html>

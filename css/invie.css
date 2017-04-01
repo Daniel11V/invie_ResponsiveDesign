@@ -94,6 +94,7 @@ input:focus, textarea:focus{
 }
 
 .background{
+  background-color: #466173;
   background-image: url("../images/background.png");
   background-size: cover;
 }
@@ -285,6 +286,11 @@ input:focus, textarea:focus{
   margin: 50px 0;
 }
 
+thead{
+  background-color: #273b47;
+  color: white;
+}
+
 .burguer-button {
   width: 40px;
   height: 40px;
@@ -298,9 +304,39 @@ input:focus, textarea:focus{
   left: 20px;
   top: 20px;
   z-index: 3;
+  color: white;
+}
+
+video{
+  width:100%;
+}
+
+.video-responsive-contenedor{
+  position:relative;
+  /*height:0;*/
+  padding-top:56.25%;
+}
+
+.video-responsive-src{
+  position:absolute;
+  width:100%;
+  height:100%;
+  left:0;
+  top:0;
+  right:0;
+  bottom:0;
 }
 
 @media screen and (max-width: 800px){
+  /*precios*/
+  .tabla {
+    margin: 50px 20px;
+  }
+  .tabla .contenedor {
+    overflow: auto;
+    border: 1px solid #273b47;
+  }
+  /*precios*/
   /*portada*/
   .titulo{
     font-size:45px;
@@ -373,9 +409,9 @@ input:focus, textarea:focus{
   textarea{
     width: 100%;
   }
-  input[type="radio"],
-  input[type="checkbox"] {
-    zoom: 1.5;
+  input[type="radio"], input[type="checkbox"] {
+    /*zoom: 1.5;*/
+    transform: scale(1.5);
   }
 
   /*footer*/
@@ -403,6 +439,12 @@ input:focus, textarea:focus{
 @media screen and (max-width: 500px){
   /*portada*/
   .portada .contenedor{
+    position: static;
+  }
+  .header{
+    position: static;
+  }
+  .header.contenedor{
     position: static;
   }
   .menu {
@@ -455,4 +497,10 @@ input:focus, textarea:focus{
     font-size: 30px;
   }
   /*guitarra*/
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 2) {
+  .background {
+    background-image: url("../images/background2x.png");
+  }
 }
